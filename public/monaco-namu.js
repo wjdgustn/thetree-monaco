@@ -32,7 +32,10 @@ document.addEventListener('thetree:pageLoad', () => {
             wordWrap: true,
             renderWhitespace: 'all',
             fontFamily: 'D2Coding, Consolas, "나눔고딕코딩", "Courier New", monospace',
-            value: valueCache
+            value: valueCache,
+            minimap: {
+                enabled: false
+            }
         });
 
         const quickaccess = new namu.toolbar.QuickAccess(monaco_editor);
