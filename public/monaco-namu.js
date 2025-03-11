@@ -27,6 +27,8 @@ document.addEventListener('thetree:pageLoad', () => {
         require(['vs/editor/editor.main', 'namu/toolbar/quickaccess'], async () => {
             const { default: namumark_register } = await import('/plugins/thetree-monaco/namu/vs/languages/namumark.js');
             namumark_register(monaco);
+
+            const getTheme = () => State.currentTheme === 'dark' ? 'vs-dark' : 'vs';
             monaco_editor = monaco.editor.create(target, {
                 language: 'namumark',
                 automaticLayout: true,
@@ -36,7 +38,17 @@ document.addEventListener('thetree:pageLoad', () => {
                 value: valueCache,
                 minimap: {
                     enabled: false
-                }
+                },
+                theme: getTheme()
+            });
+
+            const monacoThemeHandler = () => {
+                monaco.editor.setTheme(getTheme());
+            }
+            document.addEventListener('thetree:configChange', monacoThemeHandler);
+            window.beforePageLoad.push(() => {
+                document.removeEventListener('thetree:configChange', monacoThemeHandler);
+                return true;
             });
 
             const quickaccess = new namu.toolbar.QuickAccess(monaco_editor);
