@@ -1,0 +1,22 @@
+{
+  "name": "thetree-monaco",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wjdgustn/thetree-monaco.git"
+  },
+  "author": "HYONSU",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/wjdgustn/thetree-monaco/issues"
+  },
+  "homepage": "https://github.com/wjdgustn/thetree-monaco#readme",
+  "description": "",
+  "dependencies": {
+    "monaco-editor": "^0.52.2"
+  }
+}
