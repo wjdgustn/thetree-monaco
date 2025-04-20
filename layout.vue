@@ -5,7 +5,6 @@
 import { markRaw } from 'vue'
 import { default as namumarkRegister } from './namu/vs/languages/namumark'
 import { QuickAccess } from './namu/toolbar/quickaccess'
-import * as monaco from 'monaco-editor'
 import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
 
 export default {
@@ -60,7 +59,9 @@ export default {
       this.monaco.editor.setTheme(newValue)
     }
   },
-  mounted() {
+  async mounted() {
+    const monaco = await import('monaco-editor')
+
     namumarkRegister(monaco)
 
     self.MonacoEnvironment = {
