@@ -88,7 +88,6 @@ export default {
   },
   methods: {
     getValue() {
-      // return 'test'
       return this.editor.getValue()
     },
     setValue(value) {
