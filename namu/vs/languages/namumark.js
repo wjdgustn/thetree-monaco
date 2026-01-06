@@ -199,6 +199,7 @@ export default function(monaco) {
                         '$3==wiki': ['keyword', 'delimiter', {token: 'attribute.value', next: '@codeWikiAttributes', bracket: '@open'}],
                         '$3==folding': ['keyword', 'delimiter', {token: 'attribute.value', next: '@codeWikiAttributes', bracket: '@open'}],
                         '$3==if': ['keyword', 'delimiter', {token: 'attribute.value', next: '@codeWiki.$3', bracket: '@open'}],
+                        '$3==style': ['keyword', 'delimiter', {token: 'attribute.value', next: '@codeWithType.$3', nextEmbedded: 'css', bracket: '@open'}],
                         '@default': ['keyword', 'white', {token: 'white', next: '@code', bracket: '@open'}],
                     }
                 }],
